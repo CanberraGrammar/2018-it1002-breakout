@@ -61,10 +61,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // ----
         
+        let numberOfBricks = 6
+        let gapBetweenBricks = 10
+        let numberOfRows = 4
+        
+        var yCoord = 500
+        
+        for _ in 0..<numberOfRows {
+            
+            for i in 0..<numberOfBricks {
+                
+                let newBrickNode = SKSpriteNode(color: UIColor.blue, size: CGSize(width: (750 / numberOfBricks) - gapBetweenBricks, height: 25))
+                newBrickNode.anchorPoint = CGPoint(x: 0, y: 0)
+                newBrickNode.position = CGPoint(x: (i * (750 / numberOfBricks) - 375) + (gapBetweenBricks / 2), y: yCoord)
+                addChild(newBrickNode)
+                
+            }
+            
+            yCoord += 35
+            
+        }
+        
+        /*
         let newSpriteNode = SKSpriteNode(color: UIColor.red, size: CGSize(width: 50, height: 50))
         newSpriteNode.position = CGPoint(x: 0, y: 0)
         print(newSpriteNode.anchorPoint)
         self.addChild(newSpriteNode)
+         */
         
     }
     
