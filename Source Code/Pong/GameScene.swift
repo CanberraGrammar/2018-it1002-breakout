@@ -12,6 +12,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let BallCategory: UInt32 = 0x1 << 0
     let BottomCategory: UInt32 = 0x1 << 1
+    let BrickCategory: UInt32 = 0x1 << 2
     
     var bottomPaddle: SKSpriteNode?
     
@@ -42,7 +43,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ball!.physicsBody!.angularDamping = 0.0
         ball!.physicsBody!.allowsRotation = false
         ball!.physicsBody!.categoryBitMask = BallCategory
-        ball!.physicsBody!.contactTestBitMask = BottomCategory
+        ball!.physicsBody!.contactTestBitMask = BottomCategory | BrickCategory
         
         // Configure the physics world
         physicsWorld.contactDelegate = self
@@ -85,6 +86,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 let brickSpriteNode = SKSpriteNode(color: colorArray[randomColorIndex], size: CGSize(width: brickWidth, height: 25))
                 brickSpriteNode.position = CGPoint(x: CGFloat(xCoord), y: CGFloat(yCoord))
+                brickSpriteNode.physicsBody = SKPhysicsBody(rectangleOf: brickSpriteNode.size)
+                brickSpriteNode.physicsBody!.isDynamic = false
+                brickSpriteNode.physicsBody!.categoryBitMask = BrickCategory
                 addChild(brickSpriteNode)
                 
             }
@@ -210,6 +214,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             gameOver()
             
+        }
+        
+        else if (contact.bodyA.categoryBitMask == BrickCategory) {
+
+            contact.bodyA.node!.removeFromParent()
+            
+        }
+        
+       else if (contact.bodyB.categoryBitMask == BrickCategory) {
+        
+            contact.bodyB.node!.removeFromParent()
+        
         }
         
     }
