@@ -27,6 +27,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var topScoreCount: Int = 0
     var bottomScoreCount: Int = 0
     
+    var totalBricks: Int = 0
+    
+    var totalTime: Int = 0
+    var gameTimer: Timer?
+    
     override func didMove(to view: SKView) {
         
         bottomPaddle = self.childNode(withName: "bottomPaddle") as? SKSpriteNode
@@ -60,17 +65,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bottomNode.physicsBody!.categoryBitMask = BottomCategory
         addChild(bottomNode)
         
-        // ----
+        // Generates the bricks
+        generateBricks()
         
-        let numberOfBricks = 6
+    }
+    
+    func generateBricks() {
+        
+        let numberOfBricks = 2
         let gapBetweenBricks = 10
-        let numberOfRows = 4
+        let numberOfRows = 1
+        
+        totalBricks = numberOfBricks * numberOfRows
         
         let anchorCompensation = (frame.size.width / 2)
         let totalGapBetweenBricks = gapBetweenBricks * (numberOfBricks - 1)
         let brickWidth = (frame.size.width - CGFloat(totalGapBetweenBricks)) / CGFloat(numberOfBricks)
         let brickWidthCompensation = brickWidth / 2
-
+        
         var yCoord = (frame.size.height / 2) - 100
         
         let colorArray = [UIColor.red, UIColor.blue, UIColor.brown, UIColor.cyan, UIColor.green, UIColor.purple, UIColor.magenta, UIColor.yellow]
@@ -85,6 +97,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 let randomColorIndex = Int(arc4random_uniform(8))
                 
                 let brickSpriteNode = SKSpriteNode(color: colorArray[randomColorIndex], size: CGSize(width: brickWidth, height: 25))
+                brickSpriteNode.name = "brick"
                 brickSpriteNode.position = CGPoint(x: CGFloat(xCoord), y: CGFloat(yCoord))
                 brickSpriteNode.physicsBody = SKPhysicsBody(rectangleOf: brickSpriteNode.size)
                 brickSpriteNode.physicsBody!.isDynamic = false
@@ -96,13 +109,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             yCoord -= 50
             
         }
-        
-        /*
-        let newSpriteNode = SKSpriteNode(color: UIColor.red, size: CGSize(width: 50, height: 50))
-        newSpriteNode.position = CGPoint(x: 0, y: 0)
-        print(newSpriteNode.anchorPoint)
-        self.addChild(newSpriteNode)
-         */
         
     }
     
@@ -133,6 +139,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
             gameRunning = true
+            
+            gameTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (theTimer) in
+                self.totalTime += 1
+                self.bottomScore!.text = String(self.totalTime)
+            })
 
         }
         
@@ -183,6 +194,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Reset gameRunning variable
         gameRunning = false
         
+        // Reset the timer
+        totalTime = 0
+        bottomScore!.text = "0"
+        gameTimer = nil
+        
+        // Regenerate bricks
+        removeAllBricks()
+        generateBricks()
+        
         // Unpause the game
         view!.isPaused = false
         
@@ -191,6 +211,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func gameOver() {
         
         view!.isPaused = true
+        gameTimer!.invalidate()
         
         let gameOverAlert = UIAlertController(title: "Game Over", message: nil, preferredStyle: .alert)
         
@@ -206,6 +227,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    func removeAllBricks() {
+        
+        scene!.enumerateChildNodes(withName: "brick") {
+            (node, _) in
+                node.removeFromParent()
+        }
+        
+    }
+    
+    func checkForWin() {
+        
+        if totalBricks == 0 {
+            
+            view!.isPaused = true
+            gameTimer!.invalidate()
+            
+            let winAlertController = UIAlertController(title: "You Won!", message: nil, preferredStyle: .alert)
+            let dismissAction = UIAlertAction(title: "Okay", style: .default) { (alertAction) in
+                self.resetGame()
+            }
+            winAlertController.addAction(dismissAction)
+            view!.window!.rootViewController!.present(winAlertController, animated: true, completion: nil)
+            
+        }
+        
+    }
+    
     func didBegin(_ contact: SKPhysicsContact) {
         
        if (contact.bodyA.categoryBitMask == BottomCategory) || (contact.bodyB.categoryBitMask == BottomCategory) {
@@ -217,16 +265,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         else if (contact.bodyA.categoryBitMask == BrickCategory) {
+        
+            totalBricks -= 1
 
             contact.bodyA.node!.removeFromParent()
+        
+            checkForWin()
             
         }
         
        else if (contact.bodyB.categoryBitMask == BrickCategory) {
         
+            totalBricks -= 1
+        
             contact.bodyB.node!.removeFromParent()
         
+            checkForWin()
+        
         }
+    
         
     }
     
