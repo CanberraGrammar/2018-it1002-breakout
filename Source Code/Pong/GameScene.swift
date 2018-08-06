@@ -266,19 +266,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         else if (contact.bodyA.categoryBitMask == BrickCategory) {
         
-            totalBricks -= 1
-
+            let emitter = SKEmitterNode(fileNamed: "BrickExplode")
+            emitter!.position = contact.bodyA.node!.position
+            addChild(emitter!)
             contact.bodyA.node!.removeFromParent()
         
+            let emitterDelay = SKAction.wait(forDuration: 2.0)
+            let emitterOpacity = SKAction.fadeOut(withDuration: 1.0)
+            let emitterRemove = SKAction.removeFromParent()
+        
+            emitter!.run(SKAction.sequence([emitterDelay, emitterOpacity, emitterRemove]))
+        
+            totalBricks -= 1
+        
             checkForWin()
+        
             
         }
         
        else if (contact.bodyB.categoryBitMask == BrickCategory) {
         
-            totalBricks -= 1
-        
+            let emitter = SKEmitterNode(fileNamed: "BrickExplode")
+            emitter!.position = contact.bodyB.node!.position
+            addChild(emitter!)
             contact.bodyB.node!.removeFromParent()
+        
+            let emitterDelay = SKAction.wait(forDuration: 2.0)
+            let emitterOpacity = SKAction.fadeOut(withDuration: 1.0)
+            let emitterRemove = SKAction.removeFromParent()
+        
+            emitter!.run(SKAction.sequence([emitterDelay, emitterOpacity, emitterRemove]))
+        
+            totalBricks -= 1
         
             checkForWin()
         

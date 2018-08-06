@@ -15,6 +15,7 @@
 		D1DD899D20B387E700D90E2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DD899B20B387E700D90E2E /* Main.storyboard */; };
 		D1DD899F20B387E900D90E2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1DD899E20B387E900D90E2E /* Assets.xcassets */; };
 		D1DD89A220B387E900D90E2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DD89A020B387E900D90E2E /* LaunchScreen.storyboard */; };
+		D1E4E0C221190A430001BE60 /* BrickExplode.sks in Resources */ = {isa = PBXBuildFile; fileRef = D1E4E0C121190A430001BE60 /* BrickExplode.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		D1DD899E20B387E900D90E2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1DD89A120B387E900D90E2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1DD89A320B387E900D90E2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1E4E0C121190A430001BE60 /* BrickExplode.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BrickExplode.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				D1DD899E20B387E900D90E2E /* Assets.xcassets */,
 				D1DD89A020B387E900D90E2E /* LaunchScreen.storyboard */,
 				D1DD89A320B387E900D90E2E /* Info.plist */,
+				D1E4E0C121190A430001BE60 /* BrickExplode.sks */,
 			);
 			path = Pong;
 			sourceTree = "<group>";
@@ -134,6 +137,7 @@
 				D1DD899D20B387E700D90E2E /* Main.storyboard in Resources */,
 				D1DD899420B387E700D90E2E /* GameScene.sks in Resources */,
 				D1DD899F20B387E900D90E2E /* Assets.xcassets in Resources */,
+				D1E4E0C221190A430001BE60 /* BrickExplode.sks in Resources */,
 				D1DD89A220B387E900D90E2E /* LaunchScreen.storyboard in Resources */,
 				D1DD899620B387E700D90E2E /* Actions.sks in Resources */,
 			);
