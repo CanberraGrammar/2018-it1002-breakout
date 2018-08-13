@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D1C98BB5211AAAB200948B2C /* BallTrail.sks in Resources */ = {isa = PBXBuildFile; fileRef = D1C98BB4211AAAB200948B2C /* BallTrail.sks */; };
+		D1D1EBE42121025300E28F9F /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D1D1EBE32121025300E28F9F /* explosion.mp3 */; };
 		D1DD899220B387E700D90E2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DD899120B387E700D90E2E /* AppDelegate.swift */; };
 		D1DD899420B387E700D90E2E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D1DD899320B387E700D90E2E /* GameScene.sks */; };
 		D1DD899620B387E700D90E2E /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = D1DD899520B387E700D90E2E /* Actions.sks */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		D1C98BB4211AAAB200948B2C /* BallTrail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BallTrail.sks; sourceTree = "<group>"; };
+		D1D1EBE32121025300E28F9F /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
 		D1DD898E20B387E700D90E2E /* Breakout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Breakout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DD899120B387E700D90E2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1DD899320B387E700D90E2E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				D1DD89A320B387E900D90E2E /* Info.plist */,
 				D1E4E0C121190A430001BE60 /* BrickExplode.sks */,
 				D1C98BB4211AAAB200948B2C /* BallTrail.sks */,
+				D1D1EBE32121025300E28F9F /* explosion.mp3 */,
 			);
 			path = Pong;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				D1DD899420B387E700D90E2E /* GameScene.sks in Resources */,
 				D1DD899F20B387E900D90E2E /* Assets.xcassets in Resources */,
 				D1E4E0C221190A430001BE60 /* BrickExplode.sks in Resources */,
+				D1D1EBE42121025300E28F9F /* explosion.mp3 in Resources */,
 				D1C98BB5211AAAB200948B2C /* BallTrail.sks in Resources */,
 				D1DD89A220B387E900D90E2E /* LaunchScreen.storyboard in Resources */,
 				D1DD899620B387E700D90E2E /* Actions.sks in Resources */,

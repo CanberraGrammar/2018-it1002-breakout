@@ -53,6 +53,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Setup the emitter node
         let ballTrail = SKEmitterNode(fileNamed: "BallTrail")
         ball!.addChild(ballTrail!)
+        ball!.zPosition = 1
         ballTrail!.targetNode = self
         
         // Configure the physics world
@@ -284,8 +285,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
             totalBricks -= 1
         
-            checkForWin()
+            let explosionAudioAction = SKAction.playSoundFileNamed("explosion.mp3", waitForCompletion: false)
+            contact.bodyA.node!.run(explosionAudioAction)
         
+            checkForWin()
             
         }
         
@@ -303,6 +306,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             emitter!.run(SKAction.sequence([emitterDelay, emitterOpacity, emitterRemove]))
         
             totalBricks -= 1
+        
+            let explosionAudioAction = SKAction.playSoundFileNamed("explosion.mp3", waitForCompletion: false)
+            contact.bodyA.node!.run(explosionAudioAction)
         
             checkForWin()
         
