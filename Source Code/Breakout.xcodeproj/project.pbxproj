@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D12E917721239920008C9BA4 /* SplashScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D12E917621239920008C9BA4 /* SplashScene.sks */; };
+		D12E917921239AD7008C9BA4 /* SplashScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12E917821239AD7008C9BA4 /* SplashScene.swift */; };
 		D1C98BB5211AAAB200948B2C /* BallTrail.sks in Resources */ = {isa = PBXBuildFile; fileRef = D1C98BB4211AAAB200948B2C /* BallTrail.sks */; };
 		D1D1EBE42121025300E28F9F /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D1D1EBE32121025300E28F9F /* explosion.mp3 */; };
 		D1DD899220B387E700D90E2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DD899120B387E700D90E2E /* AppDelegate.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D12E917621239920008C9BA4 /* SplashScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SplashScene.sks; sourceTree = "<group>"; };
+		D12E917821239AD7008C9BA4 /* SplashScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScene.swift; sourceTree = "<group>"; };
 		D1C98BB4211AAAB200948B2C /* BallTrail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BallTrail.sks; sourceTree = "<group>"; };
 		D1D1EBE32121025300E28F9F /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
 		D1DD898E20B387E700D90E2E /* Breakout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Breakout.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +82,8 @@
 				D1E4E0C121190A430001BE60 /* BrickExplode.sks */,
 				D1C98BB4211AAAB200948B2C /* BallTrail.sks */,
 				D1D1EBE32121025300E28F9F /* explosion.mp3 */,
+				D12E917621239920008C9BA4 /* SplashScene.sks */,
+				D12E917821239AD7008C9BA4 /* SplashScene.swift */,
 			);
 			path = Pong;
 			sourceTree = "<group>";
@@ -141,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1DD899D20B387E700D90E2E /* Main.storyboard in Resources */,
+				D12E917721239920008C9BA4 /* SplashScene.sks in Resources */,
 				D1DD899420B387E700D90E2E /* GameScene.sks in Resources */,
 				D1DD899F20B387E900D90E2E /* Assets.xcassets in Resources */,
 				D1E4E0C221190A430001BE60 /* BrickExplode.sks in Resources */,
@@ -159,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1DD899820B387E700D90E2E /* GameScene.swift in Sources */,
+				D12E917921239AD7008C9BA4 /* SplashScene.swift in Sources */,
 				D1DD899A20B387E700D90E2E /* GameViewController.swift in Sources */,
 				D1DD899220B387E700D90E2E /* AppDelegate.swift in Sources */,
 			);
